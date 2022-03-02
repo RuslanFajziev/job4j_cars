@@ -20,5 +20,10 @@
         <mapping class="model.Car"/>
         <mapping class="model.Engine"/>
         <mapping class="model.Driver"/>
+
+        <mapping class="salescars.Car"/>
+        <mapping class="salescars.Announcement"/>
+        <mapping class="salescars.Author"/>
+        <mapping class="salescars.Buyer"/>
     </session-factory>
 </hibernate-configuration>
