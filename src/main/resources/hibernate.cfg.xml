@@ -21,9 +21,6 @@
         <mapping class="model.Engine"/>
         <mapping class="model.Driver"/>
 
-        <mapping class="salescars.Car"/>
-        <mapping class="salescars.Announcement"/>
-        <mapping class="salescars.Author"/>
-        <mapping class="salescars.Buyer"/>
+        <mapping class="hql.Candidate"/>
     </session-factory>
 </hibernate-configuration>
