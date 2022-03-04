@@ -41,18 +41,6 @@ public class DbStore {
         }
     }
 
-//    public void add(String name, int experience, int salary) {
-//        tx(session -> {
-//                    session.createQuery("INSERT INTO Candidate (name, experience, salary) name = :nameKey, = :experiencekey, = :salaryKey")
-//                            .setParameter("nameKey", name)
-//                            .setParameter("experiencekey", experience)
-//                            .setParameter("salaryKey", salary)
-//                            .executeUpdate();
-//                    return true;
-//                }
-//        );
-//    }
-
     public Candidate save(Candidate candidate) {
         tx(session -> session.save(candidate));
         return candidate;
