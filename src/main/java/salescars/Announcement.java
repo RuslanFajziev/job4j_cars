@@ -1,6 +1,7 @@
 package salescars;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
@@ -12,11 +13,22 @@ public class Announcement {
 
     private String description;
 
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date created = new Date(System.currentTimeMillis());
+
     @OneToOne
     @JoinColumn(name = "car_id")
     private Car car;
 
     private boolean sold;
+
+    public Date getCreated() {
+        return created;
+    }
+
+    public void setCreated(Date created) {
+        this.created = created;
+    }
 
     public int getId() {
         return id;
@@ -55,6 +67,7 @@ public class Announcement {
         return "Announcement{"
                 + "id=" + id
                 + ", description='" + description + '\''
+                + ", created=" + created
                 + ", car=" + car
                 + ", sold=" + sold
                 + '}';
@@ -70,11 +83,11 @@ public class Announcement {
         }
         Announcement that = (Announcement) o;
         return id == that.id && sold == that.sold && Objects.equals(description, that.description)
-                && Objects.equals(car, that.car);
+                && Objects.equals(created, that.created) && Objects.equals(car, that.car);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, description, car, sold);
+        return Objects.hash(id, description, created, car, sold);
     }
 }
