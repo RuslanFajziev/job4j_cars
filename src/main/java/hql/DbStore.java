@@ -54,9 +54,9 @@ public class DbStore {
         );
     }
 
-    public List<Candidate> selectId(int id) {
+    public Candidate selectId(int id) {
         return tx(session -> session.createQuery("FROM Candidate can WHERE can.id = :idKey", Candidate.class)
-                            .setParameter("idKey", id).list());
+                            .setParameter("idKey", id).list().get(0));
 
     }
 
