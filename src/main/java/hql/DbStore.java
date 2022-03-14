@@ -46,7 +46,7 @@ public class DbStore {
         return candidate;
     }
 
-        public List<Candidate> select(String name) {
+    public List<Candidate> select(String name) {
         return tx(session -> {
                     return session.createQuery("FROM Candidate can WHERE can.name = :nameKey", Candidate.class)
                             .setParameter("nameKey", name).list();
@@ -56,7 +56,7 @@ public class DbStore {
 
     public Candidate selectId(int id) {
         return tx(session -> session.createQuery("FROM Candidate can WHERE can.id = :idKey", Candidate.class)
-                            .setParameter("idKey", id).list().get(0));
+                .setParameter("idKey", id).uniqueResult());
 
     }
 
